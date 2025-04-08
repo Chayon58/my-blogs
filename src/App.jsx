@@ -1,5 +1,3 @@
-
-
 import { useState } from 'react'
 import './App.css'
 import Blogs from './components/Blogs/Blogs'
@@ -7,11 +5,22 @@ import Navbar from './components/Navbar/Navbar'
 
 function App() {
   const [bookmarked, setBookmarked]= useState([])
+  const [readingCount, setreadingCount]= useState(0)
 
   const handleBookMark =(blog) => {
     setBookmarked([...bookmarked,blog])
   }
  console.log(bookmarked)
+
+
+ const handleMarkAsRead = (time) => {
+  const newTime= readingCount + time;
+  setreadingCount(newTime);
+ }
+
+ console.log(readingCount);
+
+
   return (
     <>
       <Navbar></Navbar>
@@ -19,15 +28,15 @@ function App() {
       <div className="main-container flex text-center">
         <div className="left-container w-[70%]">
           
-          <Blogs handleBookMark={handleBookMark}></Blogs>
+          <Blogs handleBookMark={handleBookMark} handleMarkAsRead={handleMarkAsRead}></Blogs>
         </div>
 
         <div className="right-container w-[30%]">
-          <h1>Reading Time: {bookmarked.length}</h1>
-          <h1>Bookmark Count: 0</h1>
+          <h1>Reading Time: {readingCount}</h1>
+          <h1>Bookmark Count: {bookmarked.length}</h1>
 
           {
-            bookmarked.map((marked)=><p>{marked.title}</p>)
+            bookmarked.map((marked)=><p className='bg-red-200 p-2 shadow m-2 text-violet-700 font-bold'>{marked.title}</p>)
           }
         </div>
       </div>
