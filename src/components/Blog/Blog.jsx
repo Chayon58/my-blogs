@@ -2,8 +2,8 @@ import React from 'react';
 import { FaBookmark } from "react-icons/fa6";
 
 
-const Blog = ({blog}) => {
-    console.log(blog);
+const Blog = ({blog,handleBookMark}) => {
+    // console.log(blog);
     return (
         <div className='m-2'>
             <div className="card bg-base-100 w-96 shadow-sm">
@@ -16,7 +16,7 @@ const Blog = ({blog}) => {
   <div className="author flex justify-around items-center">
         <h3>{blog.author}</h3>
         <img className='w-14' src={blog.author_img} alt="" />
-        <FaBookmark />
+       <button onClick={()=> handleBookMark(blog)}><FaBookmark size={25}/></button> 
     </div>
     <h2 className="card-title">{blog.title}</h2>
     <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
