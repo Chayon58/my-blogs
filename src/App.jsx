@@ -13,9 +13,15 @@ function App() {
  console.log(bookmarked)
 
 
- const handleMarkAsRead = (time) => {
+ const handleMarkAsRead = (time,id) => {
   const newTime= readingCount + time;
   setreadingCount(newTime);
+  handleRemoveFromBookmark(id)
+ }
+
+ const handleRemoveFromBookmark = (id) => {
+  const remainingBookmark = bookmarked.filter((mark)=> mark.id !== id);
+  console.log(remainingBookmark)
  }
 
  console.log(readingCount);
