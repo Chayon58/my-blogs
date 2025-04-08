@@ -13,7 +13,7 @@ const Blogs = () => {
     console.log(blogs);
     return (
         <div>
-            
+            <h1 className='text-3xl font-bold'>total: {blogs.length}</h1>
         </div>
     );
 };
