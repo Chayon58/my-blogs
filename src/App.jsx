@@ -10,7 +10,14 @@ function App() {
     <>
       <Navbar></Navbar>
       <Blogs></Blogs>
-
+      <div className="main-container">
+        <div className="left-container">
+          Blogssss
+        </div>
+        <div className="right-container">
+          
+        </div>
+      </div>
       </>
   )
 }
